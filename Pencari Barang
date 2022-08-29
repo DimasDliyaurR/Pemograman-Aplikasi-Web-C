@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pencari barang</title>
+</head>
+<body>
+    <h1>Pencari benda</h1>
+    <form action="array.php" method="post" >
+        <input type="text" name="cari" placeholder="silahkan isi">
+        <input type="submit" value="cek">
+        <br>
+        <p name="hasil"></p>
+    </form>
+    <?php
+    $cari=$_POST["cari"];
+    $m = array("payung","gallon","panci","sepeda","macan","singa","jago");
+    for ($i=0; $i < count($m); $i++) { 
+        $flag = "kosong";
+        if($m[$i]==$cari){
+            $flag=true;
+            break;
+        }else{
+            $flag=false;
+        }
+    }
+    if($flag==true){
+        echo"benda anda berada pada tempatnya pada ruang ".$i." silahkan diambil <br>";
+        echo var_export($m);
+    }else{
+        echo"benda anda tidak ada ditempat <br> Coba tanyakan ibumu";
+    
+    }
+    ?>
+</body>
+</html>
